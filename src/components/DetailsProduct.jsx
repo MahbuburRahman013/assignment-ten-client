@@ -3,6 +3,25 @@ import { useLoaderData } from 'react-router-dom';
 const DetailsProduct = () => {
     const loadedData = useLoaderData()
     const {photo,name,description,brand,price,rating,type} = loadedData;
+    const dataAddToCart = {photo,name,description,brand,price,rating,type};
+
+   const handleAddCart = () =>{
+          fetch('http://localhost:5000/addToCart', {
+            method:'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(dataAddToCart)
+          })
+          .then(res=> res.json())
+          .then(data=> {
+            if(data.acknowledged){
+                alert('dlkfjdslkfjsdkljflksdjfl')
+            }
+            console.log(data)
+          })
+   }
+
 
     return (
         <div className='container mx-auto px-32 my-16'>
@@ -18,7 +37,7 @@ const DetailsProduct = () => {
                     <p>{type}</p>
                     <p>{description}</p>
                     
-                        <button className="btn btn-primary my-3 mr-8">Add To Cart</button>
+                        <button onClick={handleAddCart} className="btn btn-primary my-3 mr-8">Add To Cart</button>
                     
                 </div>
             </div>
