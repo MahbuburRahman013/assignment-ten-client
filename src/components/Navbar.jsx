@@ -54,7 +54,7 @@ const handleDark = () =>{
                 </div>
                 <div className="navbar-end">
                     <div>
-                        <Link><button className='bg-blue-600 text-white py-2 px-5 rounded font-semibold'>Login</button></Link>
+                        <Link to='/login'><button className='bg-blue-600 text-white py-2 px-5 rounded font-semibold'>Login</button></Link>
                     </div>
                 </div>
             </div>

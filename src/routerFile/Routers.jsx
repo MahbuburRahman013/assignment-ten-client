@@ -5,6 +5,7 @@ import CartPage from "../components/CartPage";
 import DetailsProduct from "../components/DetailsProduct";
 import Home from "../components/Home";
 import Layout from "../components/Layout";
+import Login from "../components/Login";
 import UpdateProduct from "../components/UpdateProduct";
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
           path:'/myCart',
           element:<CartPage></CartPage>,
           loader: ()=> fetch('http://localhost:5000/loadCartData')
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
         }
       ]
     },
