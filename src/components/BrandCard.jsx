@@ -1,8 +1,8 @@
-
+import {Link} from 'react-router-dom'
 
 const BrandCard = ({dataCard}) => {
 
- const {name,brand,type,price,rating,photo} = dataCard;
+ const {name,brand,type,price,rating,photo,_id} = dataCard;
 
     return (
         <div className="bg-white rounded-lg shadow-md p-4">
@@ -20,12 +20,16 @@ const BrandCard = ({dataCard}) => {
             <span className="text-yellow-500">{rating}</span>
           </div>
           <div className="mt-4">
+            <Link to={`/details/${_id}`}>
             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2">
               Details
             </button>
+            </Link>
+            <Link to={`/update/${_id}`}>
             <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
               Update
             </button>
+            </Link>
           </div>
         </div>
       </div>
