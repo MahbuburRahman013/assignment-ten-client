@@ -1,6 +1,7 @@
 import {createBrowserRouter} from "react-router-dom";
 import AddProduct from "../components/AddProduct";
 import BrandProduct from "../components/BrandProduct";
+import CartPage from "../components/CartPage";
 import DetailsProduct from "../components/DetailsProduct";
 import Home from "../components/Home";
 import Layout from "../components/Layout";
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
           path:'/details/:id',
           element:<DetailsProduct></DetailsProduct>,
           loader:({params})=> fetch(`http://localhost:5000/detailsData/${params.id}`)
+        },
+        {
+          path:'/myCart',
+          element:<CartPage></CartPage>,
+          loader: ()=> fetch('http://localhost:5000/loadCartData')
         }
       ]
     },
