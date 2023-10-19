@@ -25,14 +25,14 @@ const CartPage = () => {
 
 
     return (
-        <div className='container mx-auto my-20'>
+        <div>
             
             {   loadedData.length > 0?
-                <div>
+                <div className='container mx-auto my-20'>
                 {
                     data.map(item => <CardOFCart handleDeleteProduct={handleDeleteProduct} key={item._id} item={item}></CardOFCart>)
                 }
-            </div>: <h1 className='text-4xl font-semibold text-center'>No Cards Here.</h1>
+            </div>: <h1 className='text-4xl font-semibold h-screen text-center'>No Cards Here.</h1>
             }
             
            

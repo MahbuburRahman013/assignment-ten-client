@@ -5,7 +5,7 @@ import auth from '../fireBase/firebase.config';
 import { ContextProvider } from './AuthProvider';
 
 const Registration = () => {
-    const {createUser} = useContext(ContextProvider);
+    const {createUser, googleLogin} = useContext(ContextProvider);
 
    const handleRegister = e =>{
         e.preventDefault();
@@ -36,6 +36,17 @@ const Registration = () => {
    }
 
 
+  const handleGoogle =()=>{
+    googleLogin()
+    .then(result=>{
+        console.log(result.user)
+    })
+    .catch(error=>{
+        console.log(error.message)
+    })
+  }
+
+
 
     return (
         <div className="container mx-auto flex justify-center ">
@@ -50,7 +61,7 @@ const Registration = () => {
             </form>
             <div className="text-center">
                 <h1>Or</h1>
-                <h1 className="bg-blue-300 py-2 px-4 font-bold cursor-pointer">Login With Google</h1>
+                <h1 onClick={handleGoogle} className="bg-blue-300 py-2 px-4 font-bold cursor-pointer">Login With Google</h1>
                 <div className="flex justify-end">
                 <Link to='/login'>
                 <p className="font-semibold py-2 hover:text-blue-500 cursor-pointer">Already have an Account? Please Login</p>
