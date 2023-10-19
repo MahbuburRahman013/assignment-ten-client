@@ -1,3 +1,4 @@
+import toast,{Toaster} from "react-hot-toast";
 
 
 const AddProduct = () => {
@@ -25,7 +26,8 @@ const handleAddProduct = (e) =>{
     .then(res=> res.json())
     .then(data=> {
         if(data.acknowledged){
-            alert('product added successfully')
+            toast.success('product added successfully')
+            form.reset()
         }
         
     })
@@ -57,6 +59,7 @@ const handleAddProduct = (e) =>{
                 <input className="block w-full outline-none bg-blue-500  py-2 text-base font-semibold px-3 my-3" type="submit" value="Add Product" />
             </form>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

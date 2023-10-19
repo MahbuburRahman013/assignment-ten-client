@@ -1,3 +1,4 @@
+import toast, { Toaster } from 'react-hot-toast';
 import {useLoaderData} from 'react-router-dom'
 
 const UpdateProduct = () => {
@@ -26,7 +27,7 @@ const UpdateProduct = () => {
         .then(res=> res.json())
         .then(data=> {
             if(data.acknowledged){
-                alert('product Updated successfully')
+                toast.success('product Updated successfully')
             }
             
         })
@@ -56,6 +57,7 @@ const UpdateProduct = () => {
                 <input className="block w-full outline-none bg-blue-500  py-2 text-base font-semibold px-3 my-3" type="submit" value="Update Product" />
             </form>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

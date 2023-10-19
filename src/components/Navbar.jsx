@@ -6,6 +6,7 @@ import { BsMoon } from 'react-icons/bs';
 import { ContextProvider } from './AuthProvider';
 import { signOut } from 'firebase/auth';
 import auth from '../fireBase/firebase.config';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Navbar = () => {
 const [isTrue,setIsTrue] = useState(true)
@@ -15,10 +16,10 @@ const {user} = useContext(ContextProvider);
 const handleLogOut =()=>{
     signOut(auth)
     .then(()=>{
-        alert('sing  out user')
+        toast.success('Sing out Successfully!')
     })
     .catch(error=>{
-        alert(error?.message)
+        toast.error(error?.message)
     })
 }
 
@@ -74,7 +75,7 @@ const handleDark = () =>{
                         user&&
                         <div className='flex items-center gap-2 mr-6'>
                         <p className='font-semibold'>{user.displayName}</p>
-                        <img className='w-9 h-9 rounded-full border-2 border-blue-500' src={user.photoURL} alt="" />
+                        <img className={user.photoURL && 'w-9 h-9 rounded-full border-2 border-blue-500'} src={user.photoURL} alt="" />
                        </div>
                     }
                     <div>
@@ -86,6 +87,7 @@ const handleDark = () =>{
                     </div>
                 </div>
             </div>
+            <Toaster></Toaster>
 
         </div>
         </div>

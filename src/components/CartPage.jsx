@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {useLoaderData} from 'react-router-dom'
+import Swal from 'sweetalert2';
 import CardOFCart from './CardOFCart';
 
 const CartPage = () => {
@@ -8,19 +9,41 @@ const CartPage = () => {
   
 
   const handleDeleteProduct =(id)=>{
-    fetch(`http://localhost:5000/deleteProduct/${id}`,{
-        method:"DELETE"
-    }).then(res => res.json())
-    .then(data=>{
-        console.log(data)
-        if(data){
-            alert('delete successfully')
-            const filterData = loadedData.filter(item=> item._id !== id);
-            setData(filterData)
-            
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+
+
+            fetch(`http://localhost:5000/deleteProduct/${id}`,{
+                method:"DELETE"
+            }).then(res => res.json())
+            .then(data=>{
+                console.log(data)
+                if(data){
+                    const filterData = loadedData.filter(item=> item._id !== id);
+                    setData(filterData)
+                    
+                }
+               
+            })
+
+
+          Swal.fire(
+            'Deleted!',
+            'Your Product has been deleted.',
+            'success'
+          )
         }
-       
-    })
+      })
+  
 }
 
 

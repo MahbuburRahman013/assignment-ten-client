@@ -1,21 +1,29 @@
 import { useContext } from 'react';
-import {Link} from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import { ContextProvider } from './AuthProvider';
 
 const Login = () => {
     const {singInUser,googleLogin} = useContext(ContextProvider);
+    const location = useLocation();
+    const navigate = useNavigate()
 
 const handleLogin = e =>{
     e.preventDefault();
     const form = e.target;
     const password = form.password.value;
     const email = form.email.value;
+
     singInUser(email,password)
     .then(result=>{
-        console.log(result.user)
+        if(result.user){
+           location?.state && navigate(location.state)
+           toast.success('Login Successfully!')
+        }
+
     })
     .catch(error=>{
-        console.log(error.message)
+        toast.error(error.message)
     })
 
 }
@@ -23,10 +31,13 @@ const handleLogin = e =>{
 const handleGoogle =()=>{
     googleLogin()
     .then(result=>{
-        console.log(result.user)
+        if(result.user){
+            location?.state && navigate(location.state)
+            toast.success('Login Successfully!')
+         }
     })
     .catch(error=>{
-        console.log(error.message)
+        toast.error(error.message)
     })
   }
 
@@ -52,6 +63,7 @@ const handleGoogle =()=>{
                 </div>
             </div>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import {Link} from 'react-router-dom'
 import auth from '../fireBase/firebase.config';
 import { ContextProvider } from './AuthProvider';
+import toast,{Toaster} from 'react-hot-toast'
 
 const Registration = () => {
     const {createUser, googleLogin} = useContext(ContextProvider);
@@ -14,6 +15,11 @@ const Registration = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+
+
+        if(!/^(?=.*[A-Z])(?=.*\W).{6,}/.test(password)){
+            return toast.error('Invalid Password!!')
+         }
         
         createUser(email,password)
         .then(result=>{
@@ -22,16 +28,17 @@ const Registration = () => {
                     displayName: name,
                     photoURL:photo,
                 }).then(()=>{
-                      alert('user create successfully')
+                      toast.success('user create successfully')
+                      window.location.reload()
                 })
                 .catch(error=>{
-                    console.log(error.message)
+                    toast.error(error.message);
                 })
             }
             
         })
         .catch(error=>{
-            console.log(error.message)
+            toast.error(error.message);
         })
    }
 
@@ -39,10 +46,11 @@ const Registration = () => {
   const handleGoogle =()=>{
     googleLogin()
     .then(result=>{
-        console.log(result.user)
+        if(result.user){
+        toast.success('user create successfully')}
     })
     .catch(error=>{
-        console.log(error.message)
+        toast.error(error.message)
     })
   }
 
@@ -69,6 +77,7 @@ const Registration = () => {
                 </div>
             </div>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };

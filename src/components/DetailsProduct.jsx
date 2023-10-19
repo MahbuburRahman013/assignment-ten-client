@@ -1,4 +1,5 @@
 import { Rating, Stack } from '@mui/material';
+import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 
 const DetailsProduct = () => {
@@ -17,9 +18,9 @@ const DetailsProduct = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('dlkfjdslkfjsdkljflksdjfl')
+                    toast.success('Added To Cart Successfully!')
                 }
-                console.log(data)
+                
             })
     }
 
@@ -46,6 +47,7 @@ const DetailsProduct = () => {
 
                 </div>
             </div>
+            <Toaster></Toaster>
         </div>
     );
 };
