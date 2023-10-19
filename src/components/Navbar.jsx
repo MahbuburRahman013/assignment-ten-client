@@ -1,11 +1,28 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom'
 import './navbar';
 import { FiSun } from 'react-icons/fi';
 import { BsMoon } from 'react-icons/bs';
+import { ContextProvider } from './AuthProvider';
+import { signOut } from 'firebase/auth';
+import auth from '../fireBase/firebase.config';
 
 const Navbar = () => {
 const [isTrue,setIsTrue] = useState(true)
+const {user} = useContext(ContextProvider);
+
+
+const handleLogOut =()=>{
+    signOut(auth)
+    .then(()=>{
+        alert('sing  out user')
+    })
+    .catch(error=>{
+        alert(error?.message)
+    })
+}
+
+
 
 const handleLight = () =>{
     document.querySelector('html').setAttribute('data-theme',"dark")
@@ -53,8 +70,19 @@ const handleDark = () =>{
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    {
+                        user&&
+                        <div className='flex items-center gap-2 mr-6'>
+                        <p className='font-semibold'>{user.displayName}</p>
+                        <img className='w-9 h-9 rounded-full border-2 border-blue-500' src={user.photoURL} alt="" />
+                       </div>
+                    }
                     <div>
-                        <Link to='/login'><button className='bg-blue-600 text-white py-2 px-5 rounded font-semibold'>Login</button></Link>
+                        {
+                            user?
+                            <button onClick={handleLogOut} className='bg-blue-600 text-white py-2 px-5 rounded font-semibold'>LogOut</button>:
+                            <Link to='/login'><button className='bg-blue-600 text-white py-2 px-5 rounded font-semibold'>Login</button></Link>
+                        }
                     </div>
                 </div>
             </div>

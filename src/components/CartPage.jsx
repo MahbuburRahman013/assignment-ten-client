@@ -13,7 +13,7 @@ const CartPage = () => {
     }).then(res => res.json())
     .then(data=>{
         console.log(data)
-        if(data.deletedCount > 0){
+        if(data){
             alert('delete successfully')
             const filterData = loadedData.filter(item=> item._id !== id);
             setData(filterData)
@@ -27,12 +27,12 @@ const CartPage = () => {
     return (
         <div>
             
-            {   loadedData.length > 0?
+            {   data.length > 0?
                 <div className='container mx-auto my-20'>
                 {
                     data.map(item => <CardOFCart handleDeleteProduct={handleDeleteProduct} key={item._id} item={item}></CardOFCart>)
                 }
-            </div>: <h1 className='text-4xl font-semibold h-screen text-center'>No Cards Here.</h1>
+            </div>: <div className='flex justify-center items-center h-[50vh]'><h1 className='text-4xl font-semibold'>No Cards Here.</h1></div>
             }
             
            
