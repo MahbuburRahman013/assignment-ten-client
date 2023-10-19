@@ -11,6 +11,8 @@ import toast, { Toaster } from 'react-hot-toast';
 const Navbar = () => {
 const [isTrue,setIsTrue] = useState(true)
 const {user} = useContext(ContextProvider);
+const id = user?.uid
+
 
 
 const handleLogOut =()=>{
@@ -47,7 +49,7 @@ const handleDark = () =>{
 
                             <li><NavLink to='/'>Home</NavLink></li>
                             <li><NavLink to='/addProduct'>Add Product</NavLink></li>
-                            <li><NavLink to='/myCart'>My Cart</NavLink></li>
+                            <li><NavLink to={`/myCart/${id}`}>My Cart</NavLink></li>
 
                         </ul>
                     </div>
@@ -67,7 +69,7 @@ const handleDark = () =>{
                     <ul id='navbar' className="menu menu-horizontal gap-x-5 px-1">
                         <li><NavLink to='/'>Home</NavLink></li>
                         <li><NavLink to='/addProduct'>Add Product</NavLink></li>
-                        <li><NavLink to='/myCart'>My Cart</NavLink></li>
+                        <li><NavLink to={`/myCart/${id}`}>My Cart</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end">

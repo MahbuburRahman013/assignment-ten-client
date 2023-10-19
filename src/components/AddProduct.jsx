@@ -44,7 +44,7 @@ const handleAddProduct = (e) =>{
             <form onSubmit={handleAddProduct} className="w-full">
                 <input placeholder="Photo URL" className="block w-full outline-none bg-gray-100  py-2 text-base font-semibold px-3 my-3" type="text" name="photo" id="" />
                 <input placeholder="Product Name" className="block w-full outline-none bg-gray-100  py-2 text-base font-semibold px-3 my-3" type="text" name="name" id="" />
-                <select className="block w-full outline-none bg-gray-100  py-2 text-base font-semibold px-3 my-3" name="brand">
+                <select defaultValue={'audi'} className="block w-full outline-none bg-gray-100  py-2 text-base font-semibold px-3 my-3" name="brand">
                      <option value="bmw">bmw</option>
                      <option value="toyota">toyota</option>
                      <option value="honda">honda</option>

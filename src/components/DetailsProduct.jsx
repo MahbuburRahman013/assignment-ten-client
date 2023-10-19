@@ -1,14 +1,18 @@
 import { Rating, Stack } from '@mui/material';
+import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import { ContextProvider } from './AuthProvider';
 
 const DetailsProduct = () => {
     const loadedData = useLoaderData()
     const { photo, name, description, brand, price, rating, type } = loadedData;
-    const dataAddToCart = { photo, name, description, brand, price, rating, type };
+    const {user} = useContext(ContextProvider)
+    const id = user.uid;
+    const dataAddToCart = { photo, name, description, brand, price, rating, type ,id};
 
     const handleAddCart = () => {
-        fetch('http://localhost:5000/addToCart', {
+        fetch(`http://localhost:5000/addToCart`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
