@@ -8,12 +8,14 @@ import Layout from "../components/Layout";
 import Login from "../components/Login";
 import Registration from "../components/Registration";
 import UpdateProduct from "../components/UpdateProduct";
+import ErrorPage from "./ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout></Layout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
            path:'/',
