@@ -17,7 +17,7 @@ const UpdateProduct = () => {
         const rating = form.rating.value;
         const newForm = {name,photo,brand,type,price,rating};
         console.log(newForm)
-        fetch(`http://localhost:5000/updateProduct/${_id}`, {
+        fetch(`https://backend-side.vercel.app/updateProduct/${_id}`, {
             method:"PUT",
             headers:{
                 'content-type': "application/json"

@@ -12,7 +12,7 @@ const DetailsProduct = () => {
     const dataAddToCart = { photo, name, description, brand, price, rating, type ,id};
 
     const handleAddCart = () => {
-        fetch(`http://localhost:5000/addToCart`, {
+        fetch(`https://backend-side.vercel.app/addToCart`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

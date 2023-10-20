@@ -16,7 +16,7 @@ const handleAddProduct = (e) =>{
     const rating = form.rating.value;
     const newForm = {name,photo,brand,type,description,price,rating};
     console.log(newForm)
-    fetch('http://localhost:5000/postData', {
+    fetch('https://backend-side.vercel.app/postData', {
         method:"POST",
         headers:{
             'content-type': "application/json"

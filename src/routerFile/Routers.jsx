@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         {
           path:'/brandProduct/:brand',
           element:<BrandProduct></BrandProduct>,
-          loader: ({params})=> fetch(`http://localhost:5000/postData/${params.brand}`)
+          loader: ({params})=> fetch(`https://backend-side.vercel.app/postData/${params.brand}`)
         },
         {
           path:'addProduct',
@@ -33,17 +33,17 @@ const router = createBrowserRouter([
         {
           path:'/update/:id',
           element:<PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/detailsData/${params.id}`)
+          loader:({params})=> fetch(`https://backend-side.vercel.app/detailsData/${params.id}`)
         },
         {
           path:'/details/:id',
           element:<PrivateRoute><DetailsProduct></DetailsProduct></PrivateRoute>,
-          loader:({params})=> fetch(`http://localhost:5000/detailsData/${params.id}`)
+          loader:({params})=> fetch(`https://backend-side.vercel.app/detailsData/${params.id}`)
         },
         {
           path:'/myCart/:id',
           element:<PrivateRoute><CartPage></CartPage></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/loadCartData/${params.id}`)
+          loader: ({params})=> fetch(`https://backend-side.vercel.app/loadCartData/${params.id}`)
         },
         {
           path:'/login',

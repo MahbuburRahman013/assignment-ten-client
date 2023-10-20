@@ -22,7 +22,7 @@ const CartPage = () => {
         if (result.isConfirmed) {
 
 
-            fetch(`http://localhost:5000/deleteProduct/${id}`,{
+            fetch(`https://backend-side.vercel.app/deleteProduct/${id}`,{
                 method:"DELETE"
             }).then(res => res.json())
             .then(data=>{
