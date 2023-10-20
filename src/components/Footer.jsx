@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
             <div className=" bg-gray-300">
-                <div className="py-14 gap-9 grid grid-cols-5 container mx-auto">
+                <div className="py-14 gap-9 px-8  lg:grid grid-cols-5 container mx-auto">
                 <div className="col-span-2">
                 <div className="h-14 flex items-center  gap-2">
                         <img className="w-10" src="https://i.ibb.co/3fP9mBm/sm-5ad1c8addfe79-removebg-preview-1-removebg-preview.png" alt="" />

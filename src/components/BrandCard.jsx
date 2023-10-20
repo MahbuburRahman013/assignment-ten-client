@@ -6,7 +6,7 @@ const BrandCard = ({ dataCard }) => {
   const { name, brand, type, price, rating, photo, _id } = dataCard;
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
+    <div className="bg-white rounded-lg  shadow-md p-4">
       <img
         src={photo}
         alt={`${name} Image`}

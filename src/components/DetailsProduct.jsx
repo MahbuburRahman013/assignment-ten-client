@@ -30,9 +30,9 @@ const DetailsProduct = () => {
 
 
     return (
-        <div className='container mx-auto px-32 my-16'>
-            <div className=" border-2 flex gap-x-10 rounded">
-                <div className='w-[60%] h-[300px]'>
+        <div className='container mx-auto px-4  lg:px-32 my-16'>
+            <div className=" border-2 lg:flex gap-x-10 rounded">
+                <div className='lg:w-[60%] '>
                     <img className='w-full h-full' src={photo} alt="Movie" />
                 </div>
                 <div className=" w-[60%] flex flex-col gap-y-2 justify-center">

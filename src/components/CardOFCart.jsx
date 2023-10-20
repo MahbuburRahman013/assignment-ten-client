@@ -9,13 +9,13 @@ const CardOFCart = ({ item, handleDeleteProduct }) => {
 
 
     return (
-        <div className='my-10'>
-            <div className=" h-[150px] border-2 flex gap-x-10 rounded">
-                <div className='w-[40%] '>
-                    <img className='w-full h-full' src={photo} alt="Movie" />
-                </div>
-                <div className="w-[60%] ">
-                    <div className=" flex items-center gap-x-10 justify-center">
+        
+            <div className=" lg:h-[150px] mx-5 lg:mx-0 border-2 lg:flex  justify-start items-center  rounded">
+                
+                    <img className='h-full' src={photo} alt="Movie" />
+                
+                <div className="ml-10">
+                    <div className=" lg:flex items-center gap-x-10 justify-center">
                         <div>
                             <p className=" font-bold text-blue-400">NAME:</p>
                             <h2 className="card-title">{name}</h2>
@@ -42,17 +42,18 @@ const CardOFCart = ({ item, handleDeleteProduct }) => {
                             <p className=" font-bold text-blue-400">TYPE:</p>
                             <p>{type}</p>
                         </div>
+                        
+                        <button onClick={() => handleDeleteProduct(_id)} className="btn  block  btn-warning my-3">Delete</button>
+                    
 
                     </div>
 
-                    <div className="flex justify-end pr-10">
-                        <button onClick={() => handleDeleteProduct(_id)} className="btn w-[20%] block  btn-warning my-3">Delete</button>
-                    </div>
+                    
 
                 </div>
 
             </div>
-        </div>
+        
     );
 };
 

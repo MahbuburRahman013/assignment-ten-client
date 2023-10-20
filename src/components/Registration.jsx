@@ -57,8 +57,8 @@ const Registration = () => {
 
 
     return (
-        <div className="container mx-auto flex justify-center ">
-            <div className="w-[50%] my-16 shadow-xl px-7 py-9">
+        <div className="container mx-auto px-5 flex justify-center ">
+            <div className="lg:w-[50%] w-full my-16 shadow-xl lg:px-7 py-9">
                 <h1 className="text-center text-3xl font-semibold">Create An Account</h1>
             <form onSubmit={handleRegister} className="w-full">
                 <input placeholder="Your Name" className="block w-full outline-none bg-gray-100  py-2 text-base font-semibold px-3 my-3" type="text" name="name"  />

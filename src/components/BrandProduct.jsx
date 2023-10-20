@@ -20,19 +20,19 @@ const BrandProduct = () => {
             {
                 data.length > 0?
                 <div>
-                <div className='bg-gray-200 container px-24 rounded mx-auto pb-10'>
+                <div className='bg-gray-200 container lg:px-24 px-7 rounded mx-auto pb-10'>
                     <div >
                         <Slider {...settings}>
                             {
                                 data.map(data1 => <div key={data1._id}>
-                                    <p className='text-4xl text-center py-2 uppercase'>{data1.name}</p>
-                                    <img className='h-[400px] w-full' src={data1.photo} alt="" /> </div>)
+                                    <p className='lg:text-4xl text-center py-2 uppercase'>{data1.name}</p>
+                                    <img className='lg:h-[400px] h-[180px] w-full' src={data1.photo} alt="" /> </div>)
                             }
                         </Slider>
                     </div>
                 </div>
 
-                <div className='grid grid-cols-3 my-16 container mx-auto gap-8'>
+                <div className='grid lg:grid-cols-3 grid-cols-1 px-5 lg:px-0 my-16 container mx-auto gap-8'>
                     {
                         data.map(dataCard => <BrandCard key={dataCard._id} dataCard={dataCard}></BrandCard>)
                     }

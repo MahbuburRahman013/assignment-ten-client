@@ -9,9 +9,9 @@ const Home = () => {
         <div>
             
             <Banner></Banner>
-            <Brands></Brands>
+           <div className="px-5 lg:px-0"> <Brands></Brands></div>
             <Services></Services>
-            <Blogs></Blogs>
+            <div className="px-5 lg:px-0"><Blogs></Blogs></div>
             
         </div>
     );

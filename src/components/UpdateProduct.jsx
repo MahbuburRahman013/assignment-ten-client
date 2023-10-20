@@ -37,8 +37,8 @@ const UpdateProduct = () => {
 
 
     return (
-        <div className="container mx-auto flex justify-center  h-screen">
-            <div className="w-[50%] mt-16">
+        <div className="container mx-auto px-5 lg:px-0 flex justify-center  lg:h-screen">
+            <div className="lg:w-[50%] w-full my-14">
                 <h1 className="text-center text-3xl font-semibold">Update Product</h1>
             <form onSubmit={handleUpdateProduct} className="w-full">
                 <input defaultValue={photo} placeholder="Photo URL" className="block w-full outline-none bg-gray-100  py-2 text-base font-semibold px-3 my-3" type="text" name="photo" id="" />

@@ -4,7 +4,7 @@ const JsonBrand = ({item}) => {
        const {brandName,img} = item;
 
     return (
-        <div>
+        <div className="my-10 lg:my-0">
                 <Link to={`/brandProduct/${brandName}`}>
                     <div className="flex items-center border-2 rounded-md border-blue-500 h-36">
                         <img className="h-full w-[50%]" src={img} alt="" />
