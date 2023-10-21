@@ -5,7 +5,7 @@ import CardOFCart from './CardOFCart';
 
 const CartPage = () => {
   const loadedData = useLoaderData()
-  const [data,setData] = useState(loadedData);
+  const [dataNew,setDataNew] = useState(loadedData);
   
 
   const handleDeleteProduct =(id)=>{
@@ -26,12 +26,11 @@ const CartPage = () => {
                 method:"DELETE"
             }).then(res => res.json())
             .then(data=>{
-                console.log(data)
-                if(data){
-                    const filterData = loadedData.filter(item=> item._id !== id);
-                    setData(filterData)
-                    window.location.reload()
-                    
+                
+                if(data.deletedCount > 0){
+                    const filterData = dataNew.filter(item=> item._id !== id);
+                    setDataNew(filterData)
+                  
                 }
                
             })
@@ -51,10 +50,10 @@ const CartPage = () => {
     return (
         <div>
             
-            {   data.length > 0?
+            {   dataNew.length > 0?
                 <div className='container mx-auto my-20'>
                 {
-                    data.map(item => <CardOFCart handleDeleteProduct={handleDeleteProduct} key={item._id} item={item}></CardOFCart>)
+                    dataNew.map(item => <CardOFCart handleDeleteProduct={handleDeleteProduct} key={item._id} item={item}></CardOFCart>)
                 }
             </div>: <div className='flex justify-center items-center h-[50vh]'><h1 className='text-4xl font-semibold'>No Cards Here.</h1></div>
             }

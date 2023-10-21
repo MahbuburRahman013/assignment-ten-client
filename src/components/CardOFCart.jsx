@@ -1,11 +1,10 @@
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
+import PropTypes from 'prop-types';
 
 
 const CardOFCart = ({ item, handleDeleteProduct }) => {
     const { photo, name, brand, price, rating, type, _id } = item;
-
-
 
 
     return (
@@ -56,5 +55,10 @@ const CardOFCart = ({ item, handleDeleteProduct }) => {
         
     );
 };
+
+CardOFCart.propTypes = {
+    item: PropTypes.object.isRequired,
+    handleDeleteProduct: PropTypes.func.isRequired
+}
 
 export default CardOFCart;
