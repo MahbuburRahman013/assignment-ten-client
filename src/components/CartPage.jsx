@@ -30,6 +30,7 @@ const CartPage = () => {
                 if(data){
                     const filterData = loadedData.filter(item=> item._id !== id);
                     setData(filterData)
+                    window.location.reload()
                     
                 }
                
